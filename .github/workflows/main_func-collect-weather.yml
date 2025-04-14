@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'bronze/function-app' # ✅ Ce chemin est correct
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'bronze/function-app'
   PYTHON_VERSION: '3.11'
 
 jobs:
@@ -24,14 +24,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
-
-      - name: Create and start virtual environment
-        run: |
-          python -m venv venv
-          source venv/bin/activate
-
-      - name: Install dependencies
-        run: pip install -r bronze/function-app/requirements.txt
 
       # Optional: Add step to run tests here
 
